@@ -6,6 +6,9 @@ import { createClient } from "@supabase/supabase-js";
 const app = express();
 env.config();
 
+const supabaseUrl = process.env.SUPABASE_URL;
+const supabaseKey = process.env.SUPABASE_KEY;
+
 const db = new pg.Pool({
     user: process.env.PG_USER,
     host: process.env.PG_HOST,
@@ -19,9 +22,6 @@ const db = new pg.Pool({
 db.connect()
   .then(() => console.log("Connected to PostgreSQL"))
   .catch((err) => console.error("Database connection failed:", err));
-
-const supabaseUrl = process.env.SUPABASE_URL;
-const supabaseKey = process.env.SUPABASE_KEY;
 
   export default db;
   export const supabase = createClient(supabaseUrl, supabaseKey);
