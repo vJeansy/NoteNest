@@ -1,7 +1,7 @@
 import express from 'express';
 import pg from 'pg';
 import env from 'dotenv';
-const { createClient } = require('@supabase/supabase-js');
+import createClient from "@supabase/supabase-js";
 
 const app = express();
 env.config();
