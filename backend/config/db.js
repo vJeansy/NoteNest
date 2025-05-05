@@ -1,6 +1,7 @@
 import express from 'express';
 import pg from 'pg';
 import env from 'dotenv';
+import { createClient } from "@supabase/supabase-js";
 
 const app = express();
 env.config();
@@ -19,4 +20,8 @@ db.connect()
   .then(() => console.log("Connected to PostgreSQL"))
   .catch((err) => console.error("Database connection failed:", err));
 
+const supabaseUrl = process.env.SUPABASE_URL;
+const supabaseKey = process.env.SUPABASE_KEY;
+
   export default db;
+  export const supabase = createClient(supabaseUrl, supabaseKey);
