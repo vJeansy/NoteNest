@@ -75,3 +75,4 @@ dist
 
 # IDE/Editor files
 .vscode-test
+.vercel
