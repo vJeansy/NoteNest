@@ -1,27 +1,25 @@
-import express from 'express';
 import pg from 'pg';
-import env from 'dotenv';
+import dotenv from 'dotenv';
 import { createClient } from "@supabase/supabase-js";
 
-const app = express();
-env.config();
+dotenv.config();
 
 const supabaseUrl = process.env.SUPABASE_URL;
 const supabaseKey = process.env.SUPABASE_KEY;
 
+if (!supabaseUrl || !supabaseKey) {
+  throw new Error("Missing Supabase credentials in environment variables.");
+}
+
 const db = new pg.Pool({
-    user: process.env.PG_USER,
-    host: process.env.PG_HOST,
-    database: process.env.PG_DATABASE,
-    password: process.env.PG_PASSWORD,
-    port: process.env.PG_PORT,
-    max: 5, // max number of clients in the pool
-    idleTimeoutMillis: 30000, // Close idle clients after 30 secs
+  user: process.env.PG_USER,
+  host: process.env.PG_HOST,
+  database: process.env.PG_DATABASE,
+  password: process.env.PG_PASSWORD,
+  port: process.env.PG_PORT,
+  max: 5,
+  idleTimeoutMillis: 30000,
 });
 
-db.connect()
-  .then(() => console.log("Connected to PostgreSQL"))
-  .catch((err) => console.error("Database connection failed:", err));
-
-  export default db;
-  export const supabase = createClient(supabaseUrl, supabaseKey);
+export default db;
+export const supabase = createClient(supabaseUrl, supabaseKey);

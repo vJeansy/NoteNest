@@ -9,22 +9,20 @@ dotenv.config();
 
 const app = express();
 app.use(express.json());
+
 app.use(cors({
-  origin: "https://notenest-alpha.vercel.app", // Allow your Vercel frontend
+  origin: "https://notenest-alpha.vercel.app",
   credentials: true,
 }));
 
+app.get("/", (req, res) => {
+  res.send("API is running...");
+});
 
 app.use("/api/auth", authRoutes);
 app.use("/api/notes", noteRoutes);
 
 const PORT = process.env.PORT || 5000;
-
-app.listen(PORT, async () => {
-  try {
-    await db.connect();
-    console.log(`Server running on port ${PORT}`);
-  } catch (error) {
-    console.error("Database connection error:", error);
-  }
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
 });

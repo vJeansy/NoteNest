@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = "https://notenest-f6h2.onrender.com";
+const API_URL = "https://notenest-f6h2.onrender.com/api";
 
 export const loginUser = async (email, password) => {
   const response = await axios.post(`${API_URL}/auth/login`, { email, password });
