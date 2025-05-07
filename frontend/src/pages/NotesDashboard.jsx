@@ -5,7 +5,7 @@ import Note from "../components/Note";
 import CreateArea from "../components/CreateArea";
 import axios from "axios";
 
-const API_URL = "http://localhost:5000/api/notes";
+const API_URL = "https://notenest-f6h2.onrender.com/api/notes";
 
 function NotesDashboard() {
   const [notes, setNotes] = useState([]);
