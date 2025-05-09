@@ -1,11 +1,10 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import AuthForm from "./pages/AuthForm";
 import NotesDashboard from "./pages/NotesDashboard";
 import ProtectedRoute from "./components/ProtectedRoute";
 
 function App() {
   return (
-    <BrowserRouter>
       <Routes>
         <Route path="/login" element={<AuthForm />} />
         <Route path="/" element={<AuthForm />} />
@@ -14,7 +13,6 @@ function App() {
           <Route index element={<NotesDashboard />} />
         </Route>
       </Routes>
-    </BrowserRouter>
   );
 }
 
