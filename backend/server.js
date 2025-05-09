@@ -13,7 +13,8 @@ app.use(express.json());
 app.use(cors({
   origin: [
     "https://notenest-alpha.vercel.app",
-    "https://notenest-orfy3tc5q-vjeansys-projects.vercel.app"
+    "https://notenest-orfy3tc5q-vjeansys-projects.vercel.app",
+    "https://notenest-207utcs2m-vjeansys-projects.vercel.app"
   ],
   credentials: true,
   methods: ["GET", "POST", "PUT", "DELETE"],
