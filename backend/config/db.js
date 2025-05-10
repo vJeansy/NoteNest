@@ -18,15 +18,10 @@ if (supabaseUrl && supabaseKey) {
 
 //  PostgreSQL connection using pg.Pool
 const db = new pg.Pool({
-  user: process.env.PG_USER,
-  host: process.env.PG_HOST,
-  database: process.env.PG_DATABASE,
-  password: process.env.PG_PASSWORD,
-  port: process.env.PG_PORT,
-  ssl: { rejectUnauthorized: false }, //  Required for remote connections
-  max: 5, //  Connection pool size (prevents overload)
-  idleTimeoutMillis: 30000, //  Timeout for inactive connections
+  connectionString: process.env.DATABASE_URL,
+  ssl: { rejectUnauthorized: false },
 });
+
 
 //  Handle database connection errors gracefully
 db.on("error", (err) => {
