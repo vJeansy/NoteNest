@@ -40,9 +40,9 @@ function AuthForm() {
           <p>{isRegistering ? "Create an account" : "Login to access your notes"}</p>
           <p>
             {isRegistering ? (
-              <a href="/login">Already have an account? Login here</a>
+              <Link to="/login">Already have an account? Login here</Link>
             ) : (
-              <a href="/register">Don't have an account? Register here</a>
+              <Link to="/register">Don't have an account? Register here</Link>
             )}
           </p>
         </div>
