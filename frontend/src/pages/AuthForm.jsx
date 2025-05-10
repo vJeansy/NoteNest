@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { useNavigate, useLocation } from "react-router-dom";
 import { loginUser, registerUser } from "../services/api"; // Import register function
 import Footer from "../components/Footer";
