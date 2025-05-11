@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import IsNoteValid from "../utils/IsNoteValid";
 import AddIcon from "@mui/icons-material/Add";
-import { Alert, Fab } from "@mui/material";
+import { Fab } from "@mui/material";
 import { Zoom } from "@mui/material";
 import AlertModal from "./AlertModal";
 import { Collapse } from '@mui/material';
@@ -43,12 +43,12 @@ function CreateArea(props) {
     setIsZoom(true);
   }
 
-  // 🕒 Auto-close the alert after 3 seconds
+  // Auto-close the alert after 3 seconds
   useEffect(() => {
     if (alertMessage) {
       const timer = setTimeout(() => {
         setAlertMessage("");
-      }, 3000);
+      }, 5000);
       return () => clearTimeout(timer); // cleanup on unmount or message change
     }
   }, [alertMessage]);
@@ -91,6 +91,7 @@ function CreateArea(props) {
   <Collapse in={!!alertMessage}>
     {alertMessage && (
       <AlertModal
+        props={{ severity: "error" }}
         message={alertMessage}
         handleClose={() => setAlertMessage("")}
       />

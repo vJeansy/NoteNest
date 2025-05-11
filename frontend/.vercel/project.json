@@ -3,10 +3,15 @@
     {
       "source": "/api/:path*",
       "destination": "https://notenest-f6h2.onrender.com/:path*"
+    }
+  ],
+  "routes": [
+    {
+      "handle": "filesystem"
     },
     {
-      "source": "/(.*)",
-      "destination": "/index.html"
+      "src": "/.*",
+      "dest": "/index.html"
     }
   ]
 }

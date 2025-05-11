@@ -1,16 +1,22 @@
 import React from 'react';
 import Alert from "@mui/material/Alert";
 
-function AlertModal({ message, handleClose }) {
+function AlertModal({ props, message, handleClose }) {
     return (
           message && (
             <Alert
-              severity="warning"
+              severity={props.severity}
               onClose={() => handleClose()}
-              sx={{           minWidth: "250px",
+              sx={{
+                minWidth: "250px",
                 maxWidth: "400px",
                 boxShadow: 3,
-                borderRadius: 1, }}
+                borderRadius: 1,
+                position: "absolute",
+                bottom: "10px",
+                right: "10px",
+                zIndex: 1000,
+                transition: "all 0.3s ease-in-out",}}
             >
               {message}
             </Alert>

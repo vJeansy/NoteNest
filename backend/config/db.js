@@ -1,27 +1,20 @@
 import pg from "pg";
 import dotenv from "dotenv";
-import { createClient } from "@supabase/supabase-js";
 
 dotenv.config();
-
-//  Load Supabase credentials from environment variables.
-const supabaseUrl = process.env.SUPABASE_URL;
-const supabaseKey = process.env.SUPABASE_KEY;
-
-//  Initialize Supabase client only if credentials exist
-let supabase = null;
-if (supabaseUrl && supabaseKey) {
-  supabase = createClient(supabaseUrl, supabaseKey);
-} else {
-  console.warn("⚠ Supabase credentials missing, API client disabled.");
-}
+//console.log("🔍 Loaded ENV:", process.env.LOCAL_DB);
 
 //  PostgreSQL connection using pg.Pool
 const db = new pg.Pool({
-  connectionString: process.env.DATABASE_URL,
-  ssl: { rejectUnauthorized: false },
+  connectionString: process.env.LOCAL_DB || process.env.DATABASE_URL,
+  ssl: process.env.DATABASE_URL ? { rejectUnauthorized: false } : false,
 });
 
+//For local development, set ssl to false
+/* const db = new pg.Pool({
+  connectionString: process.env.LOCAL_DB || process.env.DATABASE_URL,
+  ssl: false,
+});*/
 
 //  Handle database connection errors gracefully
 db.on("error", (err) => {
@@ -38,4 +31,3 @@ db.query("SELECT 1")
 
 //  Export both database and Supabase instances
 export default db;
-export { supabase };

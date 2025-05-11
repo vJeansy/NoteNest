@@ -21,7 +21,8 @@ app.use(cors({
   origin: [
     "https://notenest-alpha.vercel.app",
     "https://notenest-orfy3tc5q-vjeansys-projects.vercel.app",
-    "https://notenest-207utcs2m-vjeansys-projects.vercel.app"
+    "https://notenest-207utcs2m-vjeansys-projects.vercel.app",
+    //"http://localhost:5173"
   ],
   credentials: true,
   methods: ["GET", "POST", "PUT", "DELETE", "HEAD", "OPTIONS"],

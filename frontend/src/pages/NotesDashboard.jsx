@@ -4,8 +4,10 @@ import Footer from "../components/Footer";
 import Note from "../components/Note";
 import CreateArea from "../components/CreateArea";
 import axios from "axios";
+import { logError } from "../utils/LogError";
 
-const API_URL = "https://notenest-f6h2.onrender.com/api/notes";
+const API_URL = "https://notenest-f6h2.onrender.com/apinotes"; // Production URL
+//const API_URL = "http://localhost:5000/api/notes"; // Local development URL
 
 function NotesDashboard() {
   const [notes, setNotes] = useState([]);
@@ -23,7 +25,7 @@ function NotesDashboard() {
         });
         setNotes(response.data.reverse()); // Reverse the order of notes
       } catch (error) {
-        console.error("Error fetching notes:", error);
+        logError.error("Error fetching notes:", error);
       }
     };
 
@@ -42,7 +44,7 @@ function NotesDashboard() {
       });
       setNotes(response.data.reverse()); // Reverse the order of notes
     } catch (error) {
-      console.error("Error creating note:", error);
+      logError.error("Error creating note:", error);
     }
   };
 
@@ -56,7 +58,7 @@ function NotesDashboard() {
         prevNotes.map((note) => (note.id === id ? { ...note, title, content } : note))
       );
     } catch (error) {
-      console.error("Error updating note:", error);
+      logError.error("Error updating note:", error);
     }
   };
 
@@ -68,7 +70,7 @@ function NotesDashboard() {
       });
       setNotes((prevNotes) => prevNotes.filter((note) => note.id !== id));
     } catch (error) {
-      console.error("Error deleting note:", error);
+      logError.error("Error deleting note:", error);
     }
   };
 

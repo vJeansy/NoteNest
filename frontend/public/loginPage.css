@@ -21,41 +21,123 @@
     display: flex;
     align-items: center;
     text-align: center;
-    gap: 300px;
-    background-color: rgba(255, 255, 255, 0.2); /* Semi-transparent white */
+    justify-content: center;
+    gap: 100px;
+    background-color: rgba(245, 186, 19, 0.93); /* Semi-transparent white */
     backdrop-filter: blur(10px); /* Blur effect for the glass look */
     -webkit-backdrop-filter: blur(10px); /* For Safari support */
     border: 1px solid rgba(255, 255, 255, 0.3); /* Subtle border for the glass effect */
     padding: 30px 100px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    width: 1200px;
-    height: 600px;
-}
-  .login-header {
-    width: 50%;
+    width: 100%;
     height: auto;
-    margin-bottom: 20px;
+}
+  .login-footer {
+    width: 100%;
+    height: auto;
   }
   .login-form {
     background-color: #fff;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    width: 50%;
-    height: 400px;
+    width: 450px;
+    min-width: 400px;
+    height: 550px;
     display: flex;
     flex-direction: column;
     justify-content: center;
   }
+  @media screen and (max-width: 1380px) {
+    .login-card {
+      flex-direction: column;
+      gap: 0px;
+      width: 100%;
+      height: 700px;
+      justify-content: center;
+    }
+    .login-img img {
+      display: none;
+    }
+    .login-form {
+      width: 450px;
+      height: auto;
+    }
+    .login-form h2 {
+      font-size: 1.8rem;
+    }
+  }
+  @media screen and (max-width: 768px) {
+    .login-form {
+      width: 90%;
+      height: auto;
+      padding: 15px;
+    }
+    .login-card {
+      flex-direction: column;
+      gap: 20px;
+      padding: 20px;
+    }
+    .login-img img {
+      width: 100%;
+      height: auto;
+      min-width: unset;
+      border-radius: 8px;
+    }
+    .login-form h2 {
+      font-size: 1.5rem;
+    }
+    .login-form h4 {
+      font-size: 0.9rem;
+    }
+    .input-field[type="email"],
+    .input-field[type="text"],
+    .input-field[type="password"] {
+      font-size: 1rem;
+      padding: 8px;
+    }
+    .login-btn {
+      font-size: 1rem;
+      padding: 8px;
+    }
+    span hr {
+      height: 1px;
+    }
+  }
+  .login-img img {
+    width: 750px;
+    min-width: 700px;
+    height: 750px;
+    border-radius: 8px;
+    opacity: 0.84;
+    transition: opacity 0.3s ease-in-out;
+    transition: transform 0.3s ease-in-out;
+    cursor: pointer;
+    flex-wrap: wrap;
+  }
+  .login-img img:hover {
+    transform: scale(1.05);
+  }
   .login-form h2 {
+    font-family: Billabong !important;
+    color: #f5ba13;
+    font-weight: 700;
     font-size: 2.3rem;
     text-align: center;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    cursor: default;
   }
-  .login-form input[type="email"],
-  .login-form input[type="text"],
-  .login-form input[type="password"] {
+  .login-form h4 {
+    font-size: 1rem;
+    text-align: center;
+    margin-bottom: 20px;
+    opacity: 0.5;
+  }
+  .input-field[type="email"],
+  .input-field[type="text"],
+  .input-field[type="password"] {
     width: 100%;
     padding: 10px;
     font-size: 1.3rem;
@@ -63,13 +145,69 @@
     border-radius: 4px;
     border: 1px solid #ccc;
   }
-  .login-form button {
+  .input-field[type="email"]:focus,
+  .input-field[type="text"]:focus,
+  .input-field[type="password"]:focus {
+    border-color: #f5ba13;
+    outline: none;
+  }
+  .input-field[type="email"]::placeholder,
+  .input-field[type="text"]::placeholder,
+  .input-field[type="password"]::placeholder {
+    color: #ccc;
+  }
+  .input-field[type="email"]:focus::placeholder,
+  .input-field[type="text"]:focus::placeholder,
+  .input-field[type="password"]:focus::placeholder {
+    color: #f5ba13;
+  }
+  .login-btn {
     width: 100%;
     padding: 10px;
+    margin-bottom: 25px;
     background-color: #f5ba13;
     color: white;
     border: none;
     border-radius: 4px;
     cursor: pointer;
     font-size: 1.3rem;
+  }
+  .login-btn:hover {
+    background-color: #daa71b;
+  }
+  .login-btn-disabled {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 25px;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1.3rem;
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+  .login-form p {
+    margin-top: 10px;
+    font-size: 1.2rem;
+  }
+  .login-form a {
+    color: #f5ba13;
+    text-decoration: none;
+  }
+   a:hover {
+    text-decoration: underline;
+  }
+span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 25px;
+  }
+  span hr {
+    width: 100%;
+    height: 1.5px;
+    background-color: #ccc;
+    border: none;
+    margin: 0 10px;
   }
