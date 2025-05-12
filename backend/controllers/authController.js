@@ -19,8 +19,8 @@ const sendConfirmationEmail = async (email, username) => {
   const mailOptions = {
     from: `"NoteNest" <${process.env.EMAIL_USER}>`,
     to: email,
-    subject: "Welcome to NoteNest!",
-    text: `Hi ${username}, thank you for registering with NoteNest! You can now start saving notes.`,
+    subject: "Welcome to NoteNest! 🚀",
+    text: `Hi ${username}, thank you for registering with NoteNest! 🚀 You can now start saving notes. ✅`,
   };
 
   try {

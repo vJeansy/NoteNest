@@ -6,7 +6,7 @@ import CreateArea from "../components/CreateArea";
 import axios from "axios";
 import { logError } from "../utils/LogError";
 
-const API_URL = "https://notenest-f6h2.onrender.com/apinotes"; // Production URL
+const API_URL = "https://notenest-f6h2.onrender.com/api/notes"; // Production URL
 //const API_URL = "http://localhost:5000/api/notes"; // Local development URL
 
 function NotesDashboard() {
