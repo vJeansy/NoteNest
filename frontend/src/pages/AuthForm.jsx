@@ -54,7 +54,7 @@ function AuthForm() {
       <div className="login-card">
 
       <div className="login-img">
-          <img src="./public/NoteNest.img.png" alt="Login" />
+          <img src="/NoteNest-img.svg" alt="Login" />
         </div>
 
         <div className="login-form">
